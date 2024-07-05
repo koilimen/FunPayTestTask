@@ -40,7 +40,6 @@ class DatabaseTest
                 ['user_id', [1, 2, 3], $block ?? $this->db->skip()]
             );
         }
-
         $correct = [
             'SELECT name FROM users WHERE user_id = 1',
             'SELECT * FROM users WHERE name = \'Jack\' AND block = 0',

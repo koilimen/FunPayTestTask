@@ -12,7 +12,7 @@ class ArrayParameter implements ParameterInterface
         }
         $simpleParam = new SimpleParameter();
         if (array_is_list($arg)) {
-            return join(',', array_map(fn($v): string => $simpleParam->replace($v), $arg));
+            return join(', ', array_map(fn($v): string => $simpleParam->replace($v), $arg));
         } else {
             return join(
                 ', ',

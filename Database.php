@@ -18,7 +18,8 @@ class Database implements DatabaseInterface
 
     private function buildCondition(string $query, array $args = []): string
     {
-        if (in_array($this->skip(), $args)) {
+        // echo "Building condition: [$query]\n";
+        if (str_contains(join(',', $args), $this->skip())) {
             return '';
         }
         return $this->buildQuery($query, $args);
@@ -63,7 +64,7 @@ class Database implements DatabaseInterface
                 $b .= $query[$i];
             }
         }
-        return trim($b);
+        return $b;
     }
 
     public function skip()
